@@ -111,7 +111,7 @@ function loadWidget(config) {
  
 	(function welcomeMessage() {
 		let text;
-		if (location.pathname === "/lrplrplrp/"||location.pathname === "/lrplrplrp") { // 如果是主页，可在浏览器后台输入location.pathname确定判断条件
+		if (location.pathname === "//"||location.pathname === "/") { // 如果是主页，可在浏览器后台输入location.pathname确定判断条件
 			const now = new Date().getHours();
 			if (now > 5 && now <= 7) text = ["早上好！一日之计在于晨，美好的一天就要开始了。","早啊，叫醒你的是理想还是闹钟呢。"];
 			else if (now > 7 && now <= 11) text = "上午好！工作顺利嘛，不要久坐，多起来走动走动哦！";
@@ -170,7 +170,7 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			modelId = 11; // 模型 ID
+			modelId = 2; // 模型 ID
 			modelTexturesId = 0; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
@@ -234,20 +234,20 @@ function loadWidget(config) {
 		let modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (useCDN) {
 			// 随机选择
-			//const target = randomSelection(modelList.models[modelId]);
-			//loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
-			//if(Array.isArray(modelList.models[modelId]))showMessage("我的新衣服好看嘛？", 4000, 10);
-			//else showMessage("我还没有其他衣服呢！", 4000, 10);
-
-			//顺序选择
-			if(Array.isArray(modelList.models[modelId])){
-				const index = (++modelTexturesId >= modelList.models[modelId].length) ? 0 : modelTexturesId;
-				localStorage.setItem("modelTexturesId", index);
-				const target = idSelection(modelList.models[modelId],index);
-				loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
-				if(Array.isArray(modelList.models[modelId]))showMessage("我的新衣服好看嘛？", 4000, 10);
-			}
+			const target = randomSelection(modelList.models[modelId]);
+			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
+			if(Array.isArray(modelList.models[modelId]))showMessage("我的新衣服好看嘛？", 4000, 10);
 			else showMessage("我还没有其他衣服呢！", 4000, 10);
+
+			// //顺序选择
+			// if(Array.isArray(modelList.models[modelId])){
+			// 	const index = (++modelTexturesId >= modelList.models[modelId].length) ? 0 : modelTexturesId;
+			// 	localStorage.setItem("modelTexturesId", index);
+			// 	const target = idSelection(modelList.models[modelId],index);
+			// 	loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
+			// 	if(Array.isArray(modelList.models[modelId]))showMessage("我的新衣服好看嘛？", 4000, 10);
+			// }
+			// else showMessage("我还没有其他衣服呢！", 4000, 10);
 
 			//控制台打印模型材质id
 			console.log("模型ID:"+modelId);
