@@ -37,8 +37,8 @@ if (screen.width >= 768) {
 			// cdnPath: "https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/"
 			// cdnPath: "https://live2d-api.vercel.app/"
 			//apiPath: "https://api3.fghrsh.net/live2d/"
-			cdnPath: "https://gitee.com/NiRey/live2d_api/raw/master/"
-			// cdnPath: "https://ghproxy.net/https://raw.githubusercontent.com/nirey2023/live2d_api/master/"
+			// cdnPath: "https://gitee.com/NiRey/live2d_api/raw/master/"
+			cdnPath: "https://ghproxy.net/https://raw.githubusercontent.com/nirey2023/live2d_api/master/"
 		});
 	});
 }
